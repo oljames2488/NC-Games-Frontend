@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.Header {
+  border: 1px solid red;
+}
+
+.Nav {
+  border: 1px solid royalblue;
+}

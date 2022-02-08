@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { UserContext } from './contexts/User';
+import Header from './components/Header';
+import Nav from './components/Nav';
+import Reviews from './components/Reviews';
+import ReviewCard from './components/ReviewCard';
+import Users from './components/Users';
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({
+    username: 'jessjelly',
+    avatar_id:
+      'https://yt3.ggpht.com/ytc/AKedOLSWZxIqiNioboI5uPW5Uc1BEO7KvsAvX4GuLk6S9A=s900-c-k-c0x00ffffff-no-rj',
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Reviews />}></Route>
+            <Route path="/category/:category_slug" element={<Reviews />}></Route>
+            <Route path="/reviews/:review_id" element={<ReviewCard />}></Route>
+            <Route path="/users" element={<Users />}></Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 
