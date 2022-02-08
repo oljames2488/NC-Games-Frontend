@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getSingleReview, getReviewComments } from '../utils/api'
 import Expandable from './Expandable'
+import Kudos from './Votes'
 
 
 const ReviewCard = () => {
@@ -31,8 +32,8 @@ const ReviewCard = () => {
         <img width='250px' height='250px' src={reviewCard.review_img_url} placeholder={reviewCard.title} />
         <p>Reviewed by: {reviewCard.owner} on: {reviewCard.created_at}</p>
         <p>{reviewCard.review_body}</p>
-        <p>Votes: {reviewCard.votes} Comments:{reviewCard.comment_count} </p>
-        <button>Give kudos if you found this review helpful </button>
+        <Kudos kudos={reviewCard.votes} review_id={reviewCard.review_id} />
+        <p>Comments: {reviewCard.comment_count} </p>
         <Expandable>
         <ul>
             {comments.map(comment => {

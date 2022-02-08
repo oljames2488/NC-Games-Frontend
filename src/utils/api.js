@@ -41,7 +41,7 @@ export const getAllUsers = () => {
 };
 
 export const patchReviewKudos = (review_id) => {
-  return gamesApi.patch(`/reviews/${review_id}`, { kudos_inc: 1 }).then((res) => {
+  return gamesApi.patch(`/reviews/${review_id}`, { vote_inc: 1 }).then((res) => {
     console.log(res.data);
     return res.data;
   });
