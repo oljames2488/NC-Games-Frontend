@@ -3,7 +3,6 @@ import { UserContext } from "../contexts/User";
 import {deleteUserComment} from '../utils/api'
 
 const DeleteCommentByUser = (props) => {
-    console.log(props)
     const {comment_id, author} = props
     const {loggedInUser } = useContext(UserContext)
 

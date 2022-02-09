@@ -7,6 +7,7 @@ import Nav from './components/Nav';
 import Reviews from './components/Reviews';
 import ReviewCard from './components/ReviewCard';
 import Users from './components/Users';
+import PostNewReview from './components/PostNewReview';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -26,6 +27,7 @@ function App() {
             <Route path="/category/:category_slug" element={<Reviews />}></Route>
             <Route path="/reviews/:review_id" element={<ReviewCard />}></Route>
             <Route path="/users" element={<Users />}></Route>
+            <Route path="/reviews/post-review" element={<PostNewReview />}></Route>
           </Routes>
         </div>
       </BrowserRouter>

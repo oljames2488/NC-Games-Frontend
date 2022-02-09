@@ -63,6 +63,14 @@ export const postNewComment = (postedComment, review_id) => {
   });
 };
 
+export const postNewReview = (postedReview) => {
+  console.log(postedReview);
+  return gamesApi.post(`/reviews`, postedReview).then((res) => {
+    console.log(res.data);
+    return res.data;
+  });
+};
+
 export const deleteUserComment = (comment_id) => {
   console.log(comment_id);
   return gamesApi.delete(`/comments/${comment_id}`).catch((err) => {

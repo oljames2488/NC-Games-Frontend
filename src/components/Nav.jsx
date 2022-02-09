@@ -3,6 +3,7 @@ import { getCategories } from '../utils/api';
 import {Link} from 'react-router-dom';
 import UserProfile from './UserProfile';
 
+
 const Nav = ()  => {
     const [categories, setCategories] = useState([])
 
@@ -18,6 +19,7 @@ const Nav = ()  => {
             return <Link key={category.slug} to={`/category/${category.slug}`}>{category.slug} </Link>
         })}
         <UserProfile/>
+        <Link to={`/reviews/post-review`}> Add new review </Link>
         </nav>
     )
 }

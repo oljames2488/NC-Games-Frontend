@@ -30,7 +30,6 @@ const Reviews = () => {
         <h2>All Reviews</h2>
         <p>Sort : 
             <select 
-            className='sortList'
             name='sortList'
             id='sortList'
             value={sortBy}
@@ -43,7 +42,6 @@ const Reviews = () => {
                 <option>votes</option>
             </select>
             <select 
-            className='orderList'
             name='orderList'
             id='orderList'
             value={orderBy}
