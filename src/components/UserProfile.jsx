@@ -6,7 +6,7 @@ const UserProfile = ()  => {
 
     return <>
     <p>{loggedInUser.username}</p>
-    <img width='50px' height='50px' src={loggedInUser.avatar_id}/>
+    <img width='75px' height='50px' src={loggedInUser.avatar_url}/>
     </>
 }
 

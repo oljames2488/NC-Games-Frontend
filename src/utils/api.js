@@ -45,7 +45,6 @@ export const getReviewComments = (review_id) => {
 
 export const getAllUsers = () => {
   return gamesApi.get(`/users`).then(({ data }) => {
-    console.log(data);
     return data;
   });
 };

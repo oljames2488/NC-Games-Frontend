@@ -12,8 +12,7 @@ const UserCard = () => {
             setUsers(usersFromApi)
         })
     }, [])
-// below isn't working as the state has both username and avatar but only username being mapped from api call?
-// set up functio to fetch user by username?
+
 return (
     <main>
         <h2>Boardroom Reviewers</h2>
@@ -22,7 +21,8 @@ return (
                 return (
                     <li key={user.username}>
                     <h3> {user.username} </h3>
-                    <button onClick={() => {setLoggedInUser(user.username)}}>
+                    <img width='200px' height='150px' src={user.avatar_url} alt={user.username} />
+                    <button onClick={() => {setLoggedInUser(user)}}>
                          Log me in 
                     </button>
                     </li>

@@ -20,6 +20,7 @@ const Nav = ()  => {
         })}
         <UserProfile/>
         <Link to={`/reviews/post-review`}> Add new review </Link>
+        <Link to={`/users`}> User Login </Link>
         </nav>
     )
 }

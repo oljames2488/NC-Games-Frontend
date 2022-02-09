@@ -12,9 +12,11 @@ import PostNewReview from './components/PostNewReview';
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
     username: 'jessjelly',
-    avatar_id:
-      'https://yt3.ggpht.com/ytc/AKedOLSWZxIqiNioboI5uPW5Uc1BEO7KvsAvX4GuLk6S9A=s900-c-k-c0x00ffffff-no-rj',
+    avatar_url:
+      'https://vignette.wikia.nocookie.net/mrmen/images/4…MR_JELLY_4A.jpg/revision/latest?cb=20180104121141',
   });
+
+  console.log(loggedInUser);
 
   return (
     <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
