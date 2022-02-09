@@ -5,29 +5,31 @@ const Kudos = ({kudos, review_id}) => {
 
     const [kudosChange, setKudosChange] = useState(0);
 
-    // need conditional logic for one button that shows live vote 
+    // NOW NOT HOLDING INCREASED VOTES - patch not working?
 
     const giveKudos = () => {
         setKudosChange((currChange) => currChange + 1)
-        patchReviewKudos(review_id).catch((err) => {
+        patchReviewKudos(review_id, 1).catch((err) => {
+            console.log(err)
             setKudosChange((currChange) => currChange - 1);
         })
     }
 
-    const [downvoteChange, setDownvoteChange] = useState(0);
 
     const downVote = () => {
-        setDownvoteChange((currChange) => currChange - 1)
-        patchReviewKudos(review_id).catch((err) => {
-            setDownvoteChange((currChange) => currChange + 1)
+        setKudosChange((currChange) => currChange - 1)
+        patchReviewKudos(review_id, -1).catch((err) => {
+            console.log(err)
+            setKudosChange((currChange) => currChange + 1)
         })
         
     }
     
     return (
         <>
-        <button onClick={() => giveKudos()}> ✅ {kudos + kudosChange} </button>
-        <button onClick={() => downVote()}> ❌ { kudos + downvoteChange} </button>
+        <button onClick={() => giveKudos()}> ✅  </button>
+        <p>{kudos + kudosChange}</p>
+        <button onClick={() => downVote()}> ❌  </button>
         </>
     )
 

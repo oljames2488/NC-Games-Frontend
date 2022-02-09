@@ -3,15 +3,21 @@ import { useParams } from 'react-router-dom'
 import { getSingleReview, getReviewComments } from '../utils/api'
 import Expandable from './Expandable'
 import Kudos from './Votes'
+import PostComment from './PostComment'
+import { useContext } from "react";
+import { UserContext } from "../contexts/User";
+import DeleteCommentByUser from './DeleteCommentByUser'
 
 
 const ReviewCard = () => {
 
-    // can copy kudos button to patch votes on both reviews and comments
+    // need comment count to auto-update when new comment posted - how? within Postcomment handlesubmit?
 
     const [reviewCard, setReviewCard] = useState({})
     const [comments, setComments] = useState([])
     const {review_id} = useParams()
+    const { loggedInUser } = useContext(UserContext)
+
 
     useEffect(() => {
         getSingleReview(review_id).then((reviewFromApi) => {
@@ -34,12 +40,14 @@ const ReviewCard = () => {
         <p>{reviewCard.review_body}</p>
         <Kudos kudos={reviewCard.votes} review_id={reviewCard.review_id} />
         <p>Comments: {reviewCard.comment_count} </p>
+        <PostComment review_id={reviewCard.review_id} username={loggedInUser.username}/>
         <Expandable>
         <ul>
             {comments.map(comment => {
                 return <> 
                 <p>{comment.author} on {comment.created_at}: {comment.body}</p>
                 <p>🎲 {comment.votes}</p> <button>👍</button> <button>👎</button>
+                <DeleteCommentByUser comment_id={comment.comment_id} author={comment.author} setComments={setComments} />
                 </>
             })}
         </ul>
