@@ -53,7 +53,7 @@ const Reviews = () => {
                 <option>desc</option>
             </select>
         </p>
-        <ul>
+        <ul className="ReviewList">
         {reviews.map(review => {
                 return (
                     <li key={review.review_id}>
