@@ -13,16 +13,19 @@ const UserCard = () => {
         })
     }, [])
 
+// Add button to see more - showing full details and all reviews listed - expandable or new page?
+
 return (
     <main>
         <h2>Boardroom Reviewers</h2>
-        <ul>
+        <ul className="ReviewList">
             {users.map(user => {
                 return (
-                    <li key={user.username}>
+                    <li className="ProfileList__Profile" key={user.username}>
                     <h3> {user.username} </h3>
-                    <img width='200px' height='150px' src={user.avatar_url} alt={user.username} />
-                    <button onClick={() => {setLoggedInUser(user)}}>
+                    <img width='150px' height='100px' src={user.avatar_url} alt={user.username} />
+                    <br/>
+                    <button className="Button" onClick={() => {setLoggedInUser(user)}}>
                          Log me in 
                     </button>
                     </li>

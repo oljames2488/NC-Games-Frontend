@@ -15,7 +15,7 @@ export const getReviews = (category_slug, orderBy, sortBy) => {
   // if (category_slug) path += `?category=${category_slug}`;
   const query = {
     category: category_slug,
-    order_by: orderBy,
+    order: orderBy,
     sort_by: sortBy,
   };
 
@@ -24,7 +24,6 @@ export const getReviews = (category_slug, orderBy, sortBy) => {
       delete query[key];
     }
   }
-  console.log(query);
 
   return gamesApi.get('/reviews', { params: query }).then(({ data }) => {
     return data.reviews;

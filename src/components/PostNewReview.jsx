@@ -5,7 +5,6 @@ import { UserContext } from "../contexts/User";
 import { postNewReview } from '../utils/api';
 
 const PostNewReview = () => {
-// bring in user context for username
     const { loggedInUser } = useContext(UserContext)
     const [title, setTitle] = useState({})
     const [reviewBody, setReviewBody] = useState({})
@@ -40,20 +39,17 @@ const PostNewReview = () => {
             category: category,
             // could add map function to input so that can only use selected cats.
         }
-        console.log(postedReview)
         postNewReview(postedReview)
-        // window alert confirming posted and showing review details
+        alert(`Review '${postedReview.title}' posted  - thank you ${postedReview.owner} for your contribution!`)
+
+        // take another look at how to clear form once posted - or insert LINK take to newly posted review! 
     }
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="PostReview__form" onSubmit={handleSubmit}>
             <label>
                 Review Title:
             <textarea onChange={(event) => handleReviewTitle(event)} />
-            </label>
-            <label>
-                Post your thoughts:
-            <textarea onChange={(event) => handleReviewBody(event)} />
             </label>
             <label>
                 Game Designer:
@@ -63,6 +59,10 @@ const PostNewReview = () => {
             required
             onChange={(event) => handleReviewDesigner(event)}
             />
+            </label>
+            <label>
+                Post your thoughts:
+            <textarea onChange={(event) => handleReviewBody(event)} />
             </label>
             <label>
                 Category:
@@ -78,7 +78,7 @@ const PostNewReview = () => {
                 <option>engine-building</option>
             </select>
             </label>
-            <button type='submit'>Post Review</button>
+            <button className="Button" type='submit'>Post Review</button>
         </form>
     )
 

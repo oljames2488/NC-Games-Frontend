@@ -1,20 +1,11 @@
 import { useState } from 'react'
-// import { useParams } from 'react-router-dom'
-// import { useContext } from "react";
-// import { UserContext } from "../contexts/User";
 import { postNewComment } from '../utils/api';
 
 
-// need params for review_id to invoke postNewComment
-// need user context to assign posted comment to username '/hbj
-
 const PostComment = (props) => {
     const {username, review_id } = props
-  //  const { loggedInUser } = useContext(UserContext)
     const [newComment, setNewComment] = useState('')
-   // const { review_id } = useParams;
 
-        // hanlde inputs
     const handleCommentBody = (event) => {
         console.log(event.target.value)
         setNewComment(event.target.value)
@@ -33,9 +24,9 @@ const PostComment = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='ReviewCard__comments' onSubmit={handleSubmit}>
             <label>
-                Post a comment:
+                Post comment:
                 <input
                     type='text'
                     value={newComment}
@@ -43,7 +34,7 @@ const PostComment = (props) => {
                     onChange={(event) => handleCommentBody(event)}>
                 </input>
             </label>
-            <button type='submit'>Post</button>
+            <button className='Button' type='submit'>Post</button>
         </form>
     )
 

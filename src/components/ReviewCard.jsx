@@ -7,6 +7,7 @@ import PostComment from './PostComment'
 import { useContext } from "react";
 import { UserContext } from "../contexts/User";
 import DeleteCommentByUser from './DeleteCommentByUser'
+import moment from 'moment';
 
 
 const ReviewCard = () => {
@@ -34,24 +35,29 @@ const ReviewCard = () => {
     return (
         <main>
         <h2>{reviewCard.title}</h2>
-        <h4>A game by: {reviewCard.designer}</h4>
-        <img width='250px' height='250px' src={reviewCard.review_img_url} placeholder={reviewCard.title} />
-        <p>Reviewed by: {reviewCard.owner} on: {reviewCard.created_at}</p>
+        <h4>A game by {reviewCard.designer}</h4>
+        <img className='ReviewCard__img'  src={reviewCard.review_img_url} placeholder={reviewCard.title} />
+        <div className="ReviewCard">
+        <p>Reviewed by {reviewCard.owner} on {moment(reviewCard.created_at).format("MMM Do 'YY")}</p>
         <p>{reviewCard.review_body}</p>
         <Kudos kudos={reviewCard.votes} review_id={reviewCard.review_id} />
         <p>Comments: {reviewCard.comment_count} </p>
+        </div>
+        <div className='ReviewCard'>
         <PostComment review_id={reviewCard.review_id} username={loggedInUser.username}/>
         <Expandable>
         <ul>
             {comments.map(comment => {
                 return <> 
-                <p>{comment.author} on {comment.created_at}: {comment.body}</p>
+                <p>{comment.author} on {moment(comment.created_at).format("MMM Do 'YY, h:mm")}</p> 
+                <p>{comment.body}</p>
                 <p>🎲 {comment.votes}</p> <button>👍</button> <button>👎</button>
                 <DeleteCommentByUser comment_id={comment.comment_id} author={comment.author} setComments={setComments} />
                 </>
             })}
         </ul>
         </Expandable>
+        </div>
         </main>
     )
     }

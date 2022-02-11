@@ -10,6 +10,7 @@ const DeleteCommentByUser = (props) => {
         deleteUserComment(comment_id).catch((err) => {
             console.log(err)
         })
+        alert(`Comment ${comment_id} removed from review`)
     }
 
     if (loggedInUser.username === author) {
@@ -18,7 +19,7 @@ const DeleteCommentByUser = (props) => {
             <button onClick={() => {
                 deleteComment()
             }}>
-                ❌ Delete
+                🗑
             </button>
             </>
         )

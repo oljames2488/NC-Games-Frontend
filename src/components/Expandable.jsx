@@ -6,7 +6,7 @@ function Expandable({ children }) {
   
     return (
       <>
-        <button
+        <button className='Expandable_button'
           onClick={() => {
             setIsOpen((currOpen) => !currOpen);
           }}

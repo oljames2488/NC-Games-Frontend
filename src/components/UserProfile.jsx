@@ -5,8 +5,8 @@ const UserProfile = ()  => {
     const { loggedInUser } = useContext(UserContext)
 
     return <>
-    <p>{loggedInUser.username}</p>
-    <img width='75px' height='50px' src={loggedInUser.avatar_url}/>
+    <p>Welcome {loggedInUser.username}</p>
+    <img className='Nav___profile_avatar' src={loggedInUser.avatar_url}/>
     </>
 }
 

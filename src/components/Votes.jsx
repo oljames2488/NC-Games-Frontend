@@ -5,8 +5,6 @@ const Kudos = ({kudos, review_id}) => {
 
     const [kudosChange, setKudosChange] = useState(0);
 
-    // NOW NOT HOLDING INCREASED VOTES - patch not working?
-
     const giveKudos = () => {
         setKudosChange((currChange) => currChange + 1)
         patchReviewKudos(review_id, 1).catch((err) => {
@@ -26,11 +24,11 @@ const Kudos = ({kudos, review_id}) => {
     }
     
     return (
-        <>
+        <div className='Kudos' >
         <button onClick={() => giveKudos()}> ✅  </button>
         <p>{kudos + kudosChange}</p>
         <button onClick={() => downVote()}> ❌  </button>
-        </>
+        </div>
     )
 
 }
