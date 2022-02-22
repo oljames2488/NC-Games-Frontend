@@ -44,7 +44,7 @@ const ReviewCard = () => {
         <p>Comments: {reviewCard.comment_count} </p>
         </div>
         <div className='ReviewCard'>
-        <PostComment review_id={reviewCard.review_id} username={loggedInUser.username}/>
+        <PostComment review_id={reviewCard.review_id} username={loggedInUser.username} setComments={setComments} setReviewCard={setReviewCard}/>
         <Expandable>
         <ul>
             {comments.map(comment => {

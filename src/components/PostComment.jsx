@@ -3,11 +3,10 @@ import { postNewComment } from '../utils/api';
 
 
 const PostComment = (props) => {
-    const {username, review_id } = props
+    const {username, review_id, setComments} = props
     const [newComment, setNewComment] = useState('')
 
     const handleCommentBody = (event) => {
-        console.log(event.target.value)
         setNewComment(event.target.value)
     }
 
@@ -18,8 +17,12 @@ const PostComment = (props) => {
             username: username,
             body: newComment
         }
-        console.log(postedComment)
         postNewComment(postedComment, review_id)
+        .then(() => {
+            setComments((current) => {
+                return [postedComment, ...current]
+            })
+        })
         window.alert(`Thanks, ${username}! New comment posted successfully!`)
     }
 

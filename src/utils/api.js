@@ -50,7 +50,6 @@ export const getAllUsers = () => {
 
 export const patchReviewKudos = (review_id, change) => {
   return gamesApi.patch(`/reviews/${review_id}`, { inc_votes: change }).then((res) => {
-    console.log(res.data);
     return res.data;
   });
 };

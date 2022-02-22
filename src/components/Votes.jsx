@@ -4,6 +4,7 @@ import { useState } from 'react'
 const Kudos = ({kudos, review_id}) => {
 
     const [kudosChange, setKudosChange] = useState(0);
+    const [disable, setDisable] = useState(false)
 
     const giveKudos = () => {
         setKudosChange((currChange) => currChange + 1)
@@ -11,6 +12,7 @@ const Kudos = ({kudos, review_id}) => {
             console.log(err)
             setKudosChange((currChange) => currChange - 1);
         })
+        setDisable(true)
     }
 
 
@@ -20,14 +22,14 @@ const Kudos = ({kudos, review_id}) => {
             console.log(err)
             setKudosChange((currChange) => currChange + 1)
         })
-        
+        setDisable(true)
     }
     
     return (
         <div className='Kudos' >
-        <button onClick={() => giveKudos()}> ✅  </button>
+        <button disabled={disable} onClick={() => giveKudos()}> ✅  </button>
         <p>{kudos + kudosChange}</p>
-        <button onClick={() => downVote()}> ❌  </button>
+        <button disabled={disable} onClick={() => downVote()}> ❌  </button>
         </div>
     )
 
