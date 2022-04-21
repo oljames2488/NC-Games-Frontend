@@ -24,7 +24,6 @@ My front-end project that connects with my back-end API project (listed above) f
 
 ```
 $ git clone https://github.com/oscarJames24/fe-nc-games.git
-$ cd ks-games
 ```
 
 ## Install dependencies:
