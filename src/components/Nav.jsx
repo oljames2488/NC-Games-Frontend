@@ -3,7 +3,7 @@ import { getCategories } from '../utils/api';
 import {Link} from 'react-router-dom';
 import UserProfile from './UserProfile';
 
-// change nav bar categories into drop down? Map into options inside select?
+
 const Nav = ()  => {
     const [categories, setCategories] = useState([])
 

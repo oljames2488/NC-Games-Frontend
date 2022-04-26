@@ -12,11 +12,9 @@ const Reviews = () => {
     const [sortBy, setSortBy] = useState('created_at')
 
     const handleSortBy = (event) => {
-        console.log(event.target.value)
         setSortBy(event.target.value)
     }
     const handleOrderBy = (event) => {
-        console.log(event)
         setOrderBy(event.target.value)
     }
 

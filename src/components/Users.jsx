@@ -13,7 +13,6 @@ const UserCard = () => {
         })
     }, [])
 
-// Add button to see more - showing full details and all reviews listed - expandable or new page?
 
 return (
     <main>

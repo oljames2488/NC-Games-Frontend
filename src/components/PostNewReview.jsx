@@ -12,19 +12,15 @@ const PostNewReview = () => {
     const [category, setCategory] = useState({})
 
     const handleReviewTitle = (event) => {
-        console.log(event.target.value)
         setTitle(event.target.value)
     }
     const handleReviewBody = (event) => {
-        console.log(event.target.value)
         setReviewBody(event.target.value)
     }
     const handleReviewDesigner = (event) => {
-        console.log(event.target.value)
         setDesigner(event.target.value)
     }
     const handleCategory = (event) => {
-        console.log(event.target.value)
         setCategory(event.target.value)
     }
 
@@ -37,12 +33,10 @@ const PostNewReview = () => {
             review_body: reviewBody,
             designer: designer,
             category: category,
-            // could add map function to input so that can only use selected cats.
         }
         postNewReview(postedReview)
         alert(`Review '${postedReview.title}' posted  - thank you ${postedReview.owner} for your contribution!`)
 
-        // take another look at how to clear form once posted - or insert LINK take to newly posted review! 
     }
     
     return (

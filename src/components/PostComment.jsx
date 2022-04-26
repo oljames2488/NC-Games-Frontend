@@ -10,7 +10,7 @@ const PostComment = (props) => {
         setNewComment(event.target.value)
     }
 
-        // how do we get live update of comments on page?
+  
     const handleSubmit = (event) => {
         event.preventDefault()
         const postedComment = {
