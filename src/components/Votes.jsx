@@ -13,6 +13,7 @@ const Kudos = ({kudos, review_id}) => {
             setKudosChange((currChange) => currChange - 1);
         })
         setDisable(true)
+        alert('Vote has been placed. Voting for this review has now been disabled')
     }
 
 
@@ -23,6 +24,7 @@ const Kudos = ({kudos, review_id}) => {
             setKudosChange((currChange) => currChange + 1)
         })
         setDisable(true)
+        alert('Vote has been placed. Voting for this review has now been disabled')
     }
     
     return (

@@ -16,8 +16,6 @@ function App() {
       'https://vignette.wikia.nocookie.net/mrmen/images/4…MR_JELLY_4A.jpg/revision/latest?cb=20180104121141',
   });
 
-  console.log(loggedInUser);
-
   return (
     <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
       <BrowserRouter>
